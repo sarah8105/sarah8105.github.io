@@ -1,0 +1,85 @@
+---
+title: "Dashboard"
+output:
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+
+### About this site
+
+Sometimes you need to say a bit about the site -- how it was made, where it's hosted, where the source code can be found. 
+
+If this is for a project or analysis, I recommend giving some details about the R package versions that you used to create the content.
+
+```{r libraries, include = FALSE}
+library(tidyverse)
+library(p8105.datasets)
+library(plotly)
+library(flexdashboard)
+
+data("rest_inspec") 
+
+critical_inspec = rest_inspec %>%
+  mutate(inspection_date = as.character(inspection_date),
+         inspection_date = as.Date(inspection_date, "%Y-%m-%d",
+         cuisine_description = as.factor(cuisine_description),)
+         )
+
+  
+```
+
+
+Column {data-width=650}
+---------------------------------------------------------------
+
+### Chart A
+```{r plot1}
+critical_inspec %>%
+  filter(critical_flag == "Critical") %>%
+  group_by(inspection_date) %>%
+  drop_na(inspection_date) %>%
+  summarise(inspections = n()) %>%
+  plot_ly(x = ~inspection_date, y = ~inspections, alpha = .8,
+          type = "scatter", mode = "markers") 
+
+```
+
+Column {data-width=350}
+---------------------------------------------------------------
+
+### Chart B
+```{r plot1}
+critical_inspec %>%
+  group_by(boro) %>%
+  mutate(
+    boro = as.factor(str_to_title(boro)),
+    boro = fct_reorder(boro, score)
+    ) %>%
+  drop_na(score) %>%
+  plot_ly(x = ~boro, y = ~score, color = ~boro, alpha = .5,
+          type = "box", colors = "viridis") 
+```
+
+### Chart C
+```{r plot1}
+critical_inspec %>%
+  group_by(cuisine_description, critical_flag) %>%
+  summarise(inspections = n()) %>%
+  ungroup() %>%
+  pivot_wider(
+    names_from = critical_flag,
+    values_from = inspections
+  ) %>%
+  janitor::clean_names() %>%
+  mutate(
+    total = critical + not_critical + not_applicable,
+    percent_critical = critical / total
+    ) %>%
+  filter(total > 5000) %>%
+  mutate(cuisine_description = fct_reorder(as.factor(cuisine_description), percent_critical)) %>%
+  group_by(cuisine_description) %>%
+  plot_ly(x = ~cuisine_description, y = ~percent_critical, color = ~cuisine_description, alpha = .8,
+          type = "bar", colors = "viridis") 
+```
