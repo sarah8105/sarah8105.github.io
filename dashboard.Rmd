@@ -1,17 +1,11 @@
 ---
-title: "Dashboard"
+title: "Astoria Restaurant Inspections Dashboard"
 output:
   flexdashboard::flex_dashboard:
     orientation: columns
     vertical_layout: fill
 ---
 
-
-### About this site
-
-Sometimes you need to say a bit about the site -- how it was made, where it's hosted, where the source code can be found. 
-
-If this is for a project or analysis, I recommend giving some details about the R package versions that you used to create the content.
 
 ```{r libraries, include = FALSE}
 library(tidyverse)
@@ -21,12 +15,15 @@ library(flexdashboard)
 
 data("rest_inspec") 
 
-critical_inspec = rest_inspec %>%
+astoria_inspec = rest_inspec %>%
+  filter(zipcode %in% c(11101, 11102, 11103, 11104, 11105, 11106)) %>%
+  drop_na(inspection_date, score, inspection_type) %>%
   mutate(inspection_date = as.character(inspection_date),
-         inspection_date = as.Date(inspection_date, "%Y-%m-%d",
-         cuisine_description = as.factor(cuisine_description),)
-         )
-
+         inspection_date = as.Date(inspection_date, "%Y-%m-%d"),
+         year = as.factor(format(inspection_date, "%Y")),
+         cuisine_description = ifelse(cuisine_description == 'CafÃ©/Coffee/Tea', 'Cafe', cuisine_description),
+         cuisine_description = ifelse(cuisine_description == 'Latin (Cuban, Dominican, Puerto Rican, South & Central American)', 'Latin', cuisine_description)) %>%
+  separate(inspection_type, into = c("inspection_program", "inspection_type_cat"), sep = "/")
   
 ```
 
@@ -34,37 +31,24 @@ critical_inspec = rest_inspec %>%
 Column {data-width=650}
 ---------------------------------------------------------------
 
-### Chart A
+### Trend in Restaurant Inspections by Grade
 ```{r plot1}
-critical_inspec %>%
-  filter(critical_flag == "Critical") %>%
-  group_by(inspection_date) %>%
-  drop_na(inspection_date) %>%
-  summarise(inspections = n()) %>%
-  plot_ly(x = ~inspection_date, y = ~inspections, alpha = .8,
-          type = "scatter", mode = "markers") 
-
+astoria_inspec %>%
+  drop_na(grade) %>%
+  group_by(year, grade) %>%
+  summarise(
+    inspections = n()
+  ) %>%
+  ungroup() %>%
+  plot_ly(x = ~year, y = ~inspections, color = ~grade, alpha = .5,
+          type = "scatter", mode = "lines", colors = "viridis") 
 ```
 
-Column {data-width=350}
----------------------------------------------------------------
 
-### Chart B
-```{r plot1}
-critical_inspec %>%
-  group_by(boro) %>%
-  mutate(
-    boro = as.factor(str_to_title(boro)),
-    boro = fct_reorder(boro, score)
-    ) %>%
-  drop_na(score) %>%
-  plot_ly(x = ~boro, y = ~score, color = ~boro, alpha = .5,
-          type = "box", colors = "viridis") 
-```
+### Proportion of Critical Inspections by Select Cuisine Types
 
-### Chart C
-```{r plot1}
-critical_inspec %>%
+```{r plot2}
+astoria_inspec %>%
   group_by(cuisine_description, critical_flag) %>%
   summarise(inspections = n()) %>%
   ungroup() %>%
@@ -74,12 +58,32 @@ critical_inspec %>%
   ) %>%
   janitor::clean_names() %>%
   mutate(
-    total = critical + not_critical + not_applicable,
+    total = critical + not_critical,
     percent_critical = critical / total
     ) %>%
-  filter(total > 5000) %>%
+  filter(total > 200) %>%
   mutate(cuisine_description = fct_reorder(as.factor(cuisine_description), percent_critical)) %>%
-  group_by(cuisine_description) %>%
-  plot_ly(x = ~cuisine_description, y = ~percent_critical, color = ~cuisine_description, alpha = .8,
-          type = "bar", colors = "viridis") 
+  plot_ly(x = ~cuisine_description, y = ~percent_critical, color = ~cuisine_description, alpha = .5,
+          type = "bar", colors = "viridis") %>% 
+  layout(showlegend = FALSE)
 ```
+
+
+
+
+
+Column {data-width=350}
+---------------------------------------------------------------
+
+
+### Distribution in Inspection Scores by Zipcode
+```{r plot3}
+astoria_inspec %>%
+  mutate(
+    zipcode = as.factor(zipcode)
+    ) %>%
+  plot_ly(x = ~zipcode, y = ~score, color = ~zipcode, alpha = .5,
+          type = "box", colors = "viridis") %>% 
+  layout(showlegend = FALSE)
+```
+
