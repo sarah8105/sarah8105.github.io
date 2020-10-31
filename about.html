@@ -11,7 +11,7 @@
 
 
 
-<title>Home</title>
+<title>Resume</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,6 +19,9 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -250,6 +253,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -257,6 +323,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -309,18 +385,58 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Home</h1>
+<h1 class="title toc-ignore">Resume</h1>
 
 </div>
 
 
-<div id="i-have-a-webpage" class="section level3">
-<h3>I have a webpage!</h3>
-<p>And I can put all kinds of stuff on it!</p>
+<div id="education-and-fellowships" class="section level2">
+<h2>Education and Fellowships</h2>
+<p><strong>Columbia University</strong> (2018-Present): <em>Doctor of Public Health</em></p>
+<p><strong>CDC Applied Epidemiology Fellowship</strong> (2014-2016): <em>Injury Fellow</em></p>
+<p><strong>Yale University</strong> (2012-2014): <em>Master of Public Health</em></p>
+<p><strong>University of Connecticut</strong> (2008-2012): <em>Bachelor of Science</em></p>
+</div>
+<div id="professional-experience" class="section level2">
+<h2>Professional Experience</h2>
+<p><strong>NYU Langone Health</strong> (2017-Present): <em>Research Scientist</em></p>
+<ul>
+<li>Currently serve as a research scientist on emerging surveillance and population health initiatives using electronic health records, administrative records, and other novel sources of data.</li>
+</ul>
+<p><strong>New York University</strong> (2015-2018): <em>Associate Adjunct Professor</em></p>
+<ul>
+<li>Associate adjunct professor of Epidemiology at the College of Global Health.</li>
+</ul>
+<p><strong>New York City Health + Hospitals</strong> (2017): <em>Data Analyst</em></p>
+<ul>
+<li>Maintained and analyzed electronic consultation and referral data using multiple electronic health record systems across eight hospital networks.</li>
+</ul>
+<p><strong>New York City Department of Health and Mental Hygiene</strong> (2014-2017): <em>Data Analyst</em></p>
+<ul>
+<li>Served as a data manager and analysts within the Division of Environmental Health, focusing on injury prevention and surveillance.</li>
+</ul>
+<p><strong>Yale University</strong> (2013-2014): <em>Research Assistant</em></p>
+<ul>
+<li>Recruited participants for case-control and genome-wide association studies concerning risk factors related to meningiomas and conducted phone interviews with participants.</li>
+</ul>
+</div>
+<div id="publications-and-presentations" class="section level2">
+<h2>Publications and Presentations</h2>
+<p><strong>Conderino S</strong>, Fung L, Sedlar S, Norton JM. Linkage of traffic crash and hospitalization records with limited identifiers for enhanced public health surveillance. Accident Analysis &amp; Prevention, 101(2017); 117-123.</p>
+<p><strong>Conderino S</strong>, Spira-Cohen A, Caffarelli A, Norton JM, Stayton C. Understanding Child Injury Deaths: 2010-2014 Child Fatality Review Advisory Team Report. NYC Vital Signs 2017, 16(1); 1-4.</p>
+<p><strong>Conderino S</strong>, Spira-Cohen A, Caffarelli A, Norton JM, Coyle C, Stayton C. Understanding Child Injury Deaths: 1999- 2013 Report. NYC Vital Signs 2016, 15(2); 1-4.</p>
+<p>Feldman JM, <strong>Conderino S</strong>, Islam NS, &amp; Thorpe LE (2020). Subgroup Variation and Neighborhood Social Gradients—an Analysis of Hypertension and Diabetes Among Asian Patients (New York City, 2014–2017). Journal of Racial and Ethnic Health Disparities.</p>
+<p>Toprani A, Rand M, <strong>Conderino S</strong>, Christ K, Hamade A. Fatal Injuries among New York City Construction Workers. NYC Vital Signs 2017, 16(3); 1-4.</p>
+<p>Fung L, <strong>Conderino S</strong>. Motor Vehicle Occupant Fatalities in New York City. New York City Department of Health and Mental Hygiene: Epi Data Brief (85); March 2017.</p>
+<p>Fung L, <strong>Conderino S</strong>. Pedestrian Fatalities in New York City. New York City Department of Health and Mental Hygiene: Epi Data Brief (86); March 2017.</p>
+<p>Abraham M, <strong>Conderino S</strong>, Defiesta N, Durante A, Garcia M, Higbee M, Ickovics J, Mueller A, Park J. Greater New Haven Community Index 2013, 2013: New Haven, CT: DataHaven.</p>
+<p><strong>Conderino S</strong>, Fung L, Sedlar S, Norton JM. Linkage of traffic crash and hospitalization records for enhanced public health surveillance: Methods for probabilistic matching with limited identifiers. Presentation at: Council for State and Territorial Epidemiologists; June 2016; Anchorage, AK.</p>
 </div>
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -353,6 +469,32 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
