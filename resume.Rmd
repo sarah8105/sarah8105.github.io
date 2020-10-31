@@ -1,0 +1,70 @@
+---
+title: "Resume"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+
+
+
+## Education and Fellowships
+**Columbia University** (2018-Present): _Doctor of Public Health_
+
+**CDC Applied Epidemiology Fellowship** (2014-2016): _Injury Fellow_
+
+**Yale University** (2012-2014): _Master of Public Health_
+
+**University of Connecticut** (2008-2012): _Bachelor of Science_
+
+
+
+
+## Professional Experience
+**NYU Langone Health** (2017-Present): _Research Scientist_
+
+* Currently serve as a research scientist on emerging surveillance and population health initiatives using electronic health records, administrative records, and other novel sources of data.
+
+**New York University** (2015-2018): _Associate Adjunct Professor_
+
+* Associate adjunct professor of Epidemiology at the College of Global Health.
+
+**New York City Health + Hospitals** (2017): _Data Analyst_
+
+* Maintained and analyzed electronic consultation and referral data using multiple electronic health record systems across eight hospital networks.
+
+**New York City Department of Health and Mental Hygiene** (2014-2017): _Data Analyst_
+
+* Served as a data manager and analysts within the Division of Environmental Health, focusing on injury prevention and surveillance.
+
+**Yale University** (2013-2014): _Research Assistant_
+
+* Recruited participants for case-control and genome-wide association studies concerning risk factors related to meningiomas and conducted phone interviews with participants.
+
+
+
+
+## Publications and Presentations
+
+**Conderino S**, Fung L, Sedlar S, Norton JM. Linkage of traffic crash and hospitalization records with limited identifiers for enhanced public health surveillance. Accident Analysis & Prevention, 101(2017); 117-123.
+
+**Conderino S**, Spira-Cohen A, Caffarelli A, Norton JM, Stayton C. Understanding Child Injury Deaths: 2010-2014 Child Fatality Review Advisory Team Report. NYC Vital Signs 2017, 16(1); 1-4.
+
+**Conderino S**, Spira-Cohen A, Caffarelli A, Norton JM, Coyle C, Stayton C. Understanding Child Injury Deaths: 1999- 2013 Report. NYC Vital Signs 2016, 15(2); 1-4.
+
+Feldman JM, **Conderino S**, Islam NS, & Thorpe LE (2020). Subgroup Variation and Neighborhood Social Gradients—an Analysis of Hypertension and Diabetes Among Asian Patients (New York City, 2014–2017). Journal of Racial and Ethnic Health Disparities.
+
+Toprani A, Rand M, **Conderino S**, Christ K, Hamade A. Fatal Injuries among New York City Construction Workers. NYC Vital Signs 2017, 16(3); 1-4.
+
+Fung L, **Conderino S**. Motor Vehicle Occupant Fatalities in New York City. New York City Department of Health and Mental Hygiene: Epi Data Brief (85); March 2017.
+
+Fung L, **Conderino S**. Pedestrian Fatalities in New York City. New York City Department of Health and Mental Hygiene: Epi Data Brief (86); March 2017.
+
+
+Abraham M, **Conderino S**, Defiesta N, Durante A, Garcia M, Higbee M, Ickovics J, Mueller A, Park J. Greater New Haven Community Index 2013, 2013: New Haven, CT: DataHaven.
+
+**Conderino S**, Fung L, Sedlar S, Norton JM. Linkage of traffic crash and hospitalization records for enhanced public health surveillance: Methods for probabilistic matching with limited identifiers. Presentation at: Council for State and Territorial Epidemiologists; June 2016; Anchorage, AK.
+
+
+

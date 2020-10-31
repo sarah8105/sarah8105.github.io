@@ -1,5 +1,8 @@
 ---
-title: "Holy cow!"
+title: "About"
+output: 
+  html_document:
+    toc: FALSE
 ---
 
 ### I have a webpage!
