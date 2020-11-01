@@ -7,21 +7,23 @@ output:
 ---
 
 
+<br></br>
 
 
-## Education and Fellowships
+## Education and Fellowships  
 **Columbia University** (2018-Present): _Doctor of Public Health_
 
 **CDC Applied Epidemiology Fellowship** (2014-2016): _Injury Fellow_
 
 **Yale University** (2012-2014): _Master of Public Health_
 
-**University of Connecticut** (2008-2012): _Bachelor of Science_
+**University of Connecticut** (2008-2012): _Bachelor of Science_  
 
 
+<br></br>
 
 
-## Professional Experience
+## Professional Experience  
 **NYU Langone Health** (2017-Present): _Research Scientist_
 
 * Currently serve as a research scientist on emerging surveillance and population health initiatives using electronic health records, administrative records, and other novel sources of data.
@@ -40,12 +42,12 @@ output:
 
 **Yale University** (2013-2014): _Research Assistant_
 
-* Recruited participants for case-control and genome-wide association studies concerning risk factors related to meningiomas and conducted phone interviews with participants.
+* Recruited participants for case-control and genome-wide association studies concerning risk factors related to meningiomas and conducted phone interviews with participants.  
+
+<br></br>
 
 
-
-
-## Publications and Presentations
+## Publications and Presentations  
 
 **Conderino S**, Fung L, Sedlar S, Norton JM. Linkage of traffic crash and hospitalization records with limited identifiers for enhanced public health surveillance. Accident Analysis & Prevention, 101(2017); 117-123.
 

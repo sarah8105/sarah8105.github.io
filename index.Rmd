@@ -5,6 +5,21 @@ output:
     toc: FALSE
 ---
 
-### I have a webpage!
 
-And I can put all kinds of stuff on it!
+<br></br>
+
+<img src="images\msph_logo.png" style="width:50%">
+
+  
+<br></br>
+
+### Welcome!  
+
+
+Welcome to my personal website! I am a doctoral student in epidemiology at the Mailman School of Public Health. Please visit the [About](about.html) page to find out more about my educational and professional experience and see the [Dashboard](dashboard.html) for an example of my work for a course in Data Science. Visit my [GitHub](http://github.com/sarah8105/) to see more of my work.  
+
+  
+--Sarah
+
+
+

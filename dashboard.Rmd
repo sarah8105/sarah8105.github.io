@@ -34,21 +34,37 @@ Column {data-width=650}
 
 ### Trend in Restaurant Inspections by Grade
 ```{r plot1}
+x1 <- list(
+  title = "Year"
+)
+y1 <- list(
+  title = "Inspections"
+)
+
 astoria_inspec %>%
   drop_na(grade) %>%
   group_by(year, grade) %>%
   summarise(
     inspections = n()
   ) %>%
+  mutate(text_label = str_c("Year: ", year, "\nGrade: ", grade, "\nInspections: ", inspections)) %>%
   ungroup() %>%
-  plot_ly(x = ~year, y = ~inspections, color = ~grade, alpha = .5,
-          type = "scatter", mode = "lines", colors = "viridis") 
+  plot_ly(x = ~year, y = ~inspections, text = ~text_label, color = ~grade, 
+          alpha = .5, type = "scatter", mode = "lines", colors = "viridis") %>%
+  layout(xaxis = x1, yaxis = y1)
 ```
 
 
 ### Proportion of Critical Inspections by Select Cuisine Types
 
 ```{r plot2}
+x2 <- list(
+  title = "Cuisine Type"
+)
+y2 <- list(
+  title = "Critical (%)"
+)
+
 astoria_inspec %>%
   group_by(cuisine_description, critical_flag) %>%
   summarise(inspections = n()) %>%
@@ -60,13 +76,16 @@ astoria_inspec %>%
   janitor::clean_names() %>%
   mutate(
     total = critical + not_critical,
-    percent_critical = critical / total
+    percent_critical = round(critical / total * 100,1)
     ) %>%
   filter(total > 200) %>%
-  mutate(cuisine_description = fct_reorder(as.factor(cuisine_description), percent_critical)) %>%
-  plot_ly(x = ~cuisine_description, y = ~percent_critical, color = ~cuisine_description, alpha = .5,
-          type = "bar", colors = "viridis") %>% 
-  layout(showlegend = FALSE)
+  mutate(
+    cuisine_description = fct_reorder(as.factor(cuisine_description), percent_critical),
+    text_label = str_c("Cuisine Type: ", cuisine_description, "\nTotal Inspections: ", total, "\nPercent Critical: ", percent_critical, "%")
+    ) %>%
+  plot_ly(x = ~cuisine_description, y = ~percent_critical, text = ~text_label, 
+          color = ~cuisine_description, alpha = .5, type = "bar", colors = "viridis") %>% 
+  layout(showlegend = FALSE, xaxis = x2, yaxis = y2)
 ```
 
 
@@ -77,14 +96,21 @@ Column {data-width=350}
 ---------------------------------------------------------------
 
 
-### Distribution in Inspection Scores by Zipcode
+### Distribution in Inspection Scores by Zip Code
 ```{r plot3}
+x3 <- list(
+  title = "Zip Code"
+)
+y3 <- list(
+  title = "Inspection Score"
+)
+
 astoria_inspec %>%
   mutate(
     zipcode = as.factor(zipcode)
-    ) %>%
+  ) %>%
   plot_ly(x = ~zipcode, y = ~score, color = ~zipcode, alpha = .5,
           type = "box", colors = "viridis") %>% 
-  layout(showlegend = FALSE)
+  layout(showlegend = FALSE, xaxis = x3, yaxis = y3)
 ```
 
